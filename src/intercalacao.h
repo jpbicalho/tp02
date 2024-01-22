@@ -9,7 +9,7 @@
 
 #define TAM_MEM_INTERNA 3
 
-#define NUM_REGISTROS 100
+#define NUM_REGISTROS 197
 //criar enum de marcadores
 
 
@@ -33,5 +33,10 @@ int validador();
 
 int calculaQuantidadeBlocos(FILE*);
 
+void intercalacao_Balanceada_Fitas_entrada();
+
+void intercalacao_Balanceada_Fitas_Saida();
+
+int confere_Intercalacao();
 
 #endif

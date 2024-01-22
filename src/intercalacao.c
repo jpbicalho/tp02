@@ -424,7 +424,7 @@ void selecao_por_substituicao(){
     
     Heap *heap;
     heap = criarHeap(TAM_MEM_INTERNA);
-    
+    FILE* arqtxt = fopen("bin/teste.txt","w");
     //heap construido, agora recebe os registros e joga pro heap
     FILE *arquivoProvao = fopen("PROVAO.TXT","r");
     char nomeFitaEntrada[] = "bin/fita00.bin";
@@ -433,7 +433,7 @@ void selecao_por_substituicao(){
     if(arquivoProvao == NULL) printf("\nFalha ao abrir o arquivo\n");
     if(arquivoFita == NULL) printf("\nFalha ao abrir o arquivo\n");
     
-
+    int total=0;
     int  contadorRegistros=0;
     //recebe os itens do provao, adiciona no registro com o marcador 0 e insere no heap
     for(int i = 0; i < TAM_MEM_INTERNA; i++){
@@ -441,7 +441,6 @@ void selecao_por_substituicao(){
         tRegistro regAux;
         
         itemAux = leitor_de_registros(arquivoProvao);
-        contadorRegistros++;
         regAux.item = itemAux;
         regAux.marcador = 0;
         inserir(heap,regAux);
@@ -452,15 +451,23 @@ void selecao_por_substituicao(){
     int contaItensMarcados = 0;
     tRegistro novoReg,minReg;
 
-
+    tItem marcaFim = {-1,0,"","",""};
     do{
         do{
             //comparando o menor do heap com o novo registro para saber se o novo sera marcado
             minReg = extrairMinimo(heap);
-            printf("\nAdicionado: %.2lf - %s",minReg.item.nota,nomeFitaEntrada);
-            fwrite(&minReg.item,sizeof(tItem),1,arquivoFita);
-            novoReg.item = leitor_de_registros(arquivoProvao);
+            printf("\n%.2lf",minReg.item.nota);
+            
+            total++;
             contadorRegistros++;
+            fwrite(&minReg.item,sizeof(tItem),1,arquivoFita);
+            fprintf(arqtxt,"%lf\n",minReg.item.nota);
+            if(contadorRegistros >= NUM_REGISTROS){ 
+                fwrite(&marcaFim,sizeof(tItem),1,arquivoFita);
+                fprintf(arqtxt,"%ld\n",marcaFim.inscricao);
+                break;
+            }
+            novoReg.item = leitor_de_registros(arquivoProvao);
             
             if(minReg.item.nota > novoReg.item.nota){
                 novoReg.marcador = 1;
@@ -476,7 +483,7 @@ void selecao_por_substituicao(){
         
         
         //printa um marcador de fim de bloco, onde a inscricao eh -1
-        tItem marcaFim = {-1,0,"","",""};
+        
         fwrite(&marcaFim,sizeof(tItem),1,arquivoFita);
         
         //fecha a fita e abre a proxima
@@ -491,7 +498,233 @@ void selecao_por_substituicao(){
     fclose(arquivoProvao);
     fclose(arquivoFita);
     desalocaHeap(heap);
+    printf("\n\nTotal de registros: %d",total);
+    printf("\n\nTotal de registros: %d",contadorRegistros);
 
+}
+
+void intercalacao_Balanceada_Fitas_entrada(){
+
+    // definicao dos nomes das fitas de entrada e saida
+    char nomeArquivoEntrada[] = "bin/fita00.bin";
+    
+    char nomeArquivoSaida[] = "bin/fita00.bin";
+    define_Nome_Fita_Saida(nomeArquivoSaida);
+
+    //vetor de ponteiros de arquivos para a leitura e escrita das fitas
+    FILE *arquivosEntrada[NUM_FITAS/2];
+    FILE *arquivosSaida[NUM_FITAS/2];
+    
+
+    //Abre os arquivos de fita de entrada
+    for (int i = 0; i < (NUM_FITAS/2); i++)
+    {
+        arquivosEntrada[i] = fopen(nomeArquivoEntrada,"rb");
+        printf("\nAbrindo(i)  %s",nomeArquivoEntrada);
+        if(arquivosEntrada[i] == NULL) 
+            printf("\n\nerro na abertura do arquivo: %s", nomeArquivoEntrada);
+        incrementa_Nome(nomeArquivoEntrada);
+
+        printf("\nAbrindo(o)  %s",nomeArquivoSaida);
+        arquivosSaida[i] = fopen(nomeArquivoSaida,"wb");
+        if(arquivosSaida[i] == NULL) 
+           printf("\n\nerro na abertura do arquivo: %s", nomeArquivoSaida);
+        incrementa_Nome(nomeArquivoSaida);
+    }
+
+    //variavel auxiliar
+    tItem auxItem;
+    //simulação da memeoria interna
+    tItem registros[NUM_FITAS/2];
+
+    int atvFitas[NUM_FITAS/2],marcador=0;
+    int k = 0;
+    do{    
+        //lendo os primeiros f registros, adiciono numa estrutura de dados ja ordenada
+        //atualizo a atividade de cada fita 
+        for (int i = 0; i < NUM_FITAS/2; i++)
+        {
+            if( 0 == fread(&registros[i],sizeof(tItem),1,arquivosEntrada[i])){
+                atvFitas[i] = 0;
+            }
+
+            if(registros[i].inscricao < 0){atvFitas[i] = 0;}else{atvFitas[i] = 1;}
+
+        }
+        if(somatorioVetor(atvFitas,(NUM_FITAS/2)) == 0) break;
+        //processo de intercalação dos blocos
+        do{
+            if(somatorioVetor(atvFitas,(NUM_FITAS/2)) == 0) break;
+            //Defino o elemento base para comparar
+            for (int i = 0; i < (NUM_FITAS/2); i++)
+            {
+                if(atvFitas[i] == 1) {
+                    auxItem = registros[i];
+                    //printf("\nDefine o %lf como base",auxItem.nota);
+                    break;
+            }
+            }
+            
+            for (int i = 0; i < (NUM_FITAS/2); i++){
+                if(atvFitas[i] == 0){
+                    continue;
+                }else if(registros[i].nota <= auxItem.nota){
+                    auxItem = registros[i];
+                    marcador = i;
+                }
+            }
+            
+            printf("\n-%lf",auxItem.nota);
+            fwrite(&auxItem,sizeof(tItem),1,arquivosSaida[k]);
+            fread(&registros[marcador],sizeof(tItem),1,arquivosEntrada[marcador]);
+            if(registros[marcador].inscricao == -1) atvFitas[marcador] = 0;
+            
+
+            
+        }while(somatorioVetor(atvFitas,(NUM_FITAS/2)) != 0);
+        //finaliza o bloco
+        tItem marcaFim = {-1,0,"","",""};
+        fwrite(&marcaFim,sizeof(tItem),1,arquivosSaida[k]);
+        printf("\nSalva o fim de bloco");
+        if(k < (NUM_FITAS/2)-1){
+            k++;
+        }else k=0;
+
+       
+        
+    }while(1);    
+    
+    
+    //fecha os arquivos abertos
+    for (int i = 0; i < (NUM_FITAS/2); i++)
+    {
+        fclose(arquivosEntrada[i]);
+        fclose(arquivosSaida[i]);
+    }
+
+
+}
+
+void intercalacao_Balanceada_Fitas_Saida(){
+     // definicao dos nomes das fitas de entrada e saida
+    char nomeArquivoEntrada[] = "bin/fita00.bin";
+    
+    char nomeArquivoSaida[] = "bin/fita00.bin";
+    define_Nome_Fita_Saida(nomeArquivoSaida);
+
+    //vetor de ponteiros de arquivos para a leitura e escrita das fitas
+    FILE *arquivosEntrada[NUM_FITAS/2];
+    FILE *arquivosSaida[NUM_FITAS/2];
+    
+
+    //Abre os arquivos de fita de entrada
+    for (int i = 0; i < (NUM_FITAS/2); i++)
+    {
+        arquivosEntrada[i] = fopen(nomeArquivoEntrada,"wb");
+        printf("\nAbrindo(i)  %s",nomeArquivoEntrada);
+        if(arquivosEntrada[i] == NULL) 
+            printf("\n\nerro na abertura do arquivo: %s", nomeArquivoEntrada);
+        incrementa_Nome(nomeArquivoEntrada);
+
+        printf("\nAbrindo(o)  %s",nomeArquivoSaida);
+        arquivosSaida[i] = fopen(nomeArquivoSaida,"rb");
+        if(arquivosSaida[i] == NULL) 
+           printf("\n\nerro na abertura do arquivo: %s", nomeArquivoSaida);
+        incrementa_Nome(nomeArquivoSaida);
+    }
+
+    //variavel auxiliar
+    tItem auxItem;
+    //simulação da memeoria interna
+    tItem registros[NUM_FITAS/2];
+
+    int atvFitas[NUM_FITAS/2],marcador=0;
+    int k = 0;
+    do{    
+        //lendo os primeiros f registros, adiciono numa estrutura de dados ja ordenada
+        //atualizo a atividade de cada fita 
+        for (int i = 0; i < NUM_FITAS/2; i++)
+        {
+            if( 0 == fread(&registros[i],sizeof(tItem),1,arquivosSaida[i])){
+                atvFitas[i] = 0;
+            }
+
+            if(registros[i].inscricao < 0){atvFitas[i] = 0;}else{atvFitas[i] = 1;}
+
+        }
+        if(somatorioVetor(atvFitas,(NUM_FITAS/2)) == 0) break;
+        //processo de intercalação dos blocos
+        do{
+            //Defino o elemento base para comparar
+            for (int i = 0; i < (NUM_FITAS/2); i++)
+            {
+                if(atvFitas[i] == 1) {
+                    auxItem = registros[i];
+                    //printf("\nDefine o %lf como base",auxItem.nota);
+                    break;
+            }
+            }
+            
+            for (int i = 0; i < (NUM_FITAS/2); i++){
+                if(atvFitas[i] == 0){
+                    continue;
+                }else if(registros[i].nota <= auxItem.nota){
+                    auxItem = registros[i];
+                    marcador = i;
+                }
+            }
+            
+            printf("\n%lf",auxItem.nota);
+            fwrite(&auxItem,sizeof(tItem),1,arquivosEntrada[k]);
+            fread(&registros[marcador],sizeof(tItem),1,arquivosSaida[marcador]);
+            if(registros[marcador].inscricao == -1) atvFitas[marcador] = 0;
+            
+
+            
+        }while(somatorioVetor(atvFitas,(NUM_FITAS/2)) != 0);
+        //finaliza o bloco
+        tItem marcaFim = {-1,0,"","",""};
+        fwrite(&marcaFim,sizeof(tItem),1,arquivosEntrada[k]);
+        printf("\nSalva o fim de bloco");
+        if(k < (NUM_FITAS/2)-1){
+            k++;
+        }else k=0;
+       
+        
+    }while(1);    
+    
+    
+    //fecha os arquivos abertos
+    for (int i = 0; i < (NUM_FITAS/2); i++)
+    {
+        fclose(arquivosEntrada[i]);
+        fclose(arquivosSaida[i]);
+    }
+
+
+}
+
+int confere_Intercalacao(){
+    FILE *arquivo = fopen("bin/fita00.bin","rb");
+    if(arquivo == NULL){
+        printf("\nFalha na abertura do arquivo...");
+        return -1;
+    }
+
+    int quantidade = 0;
+    tItem aux;
+    aux.inscricao = -2;
+     
+   do{
+        if(fread(&aux,sizeof(tItem),1,arquivo) < 1)break;
+        printf("\n%d)%ld",quantidade,aux.inscricao);
+        if(aux.inscricao < 0) break;
+        quantidade++;
+    }while(1);
+    
+    printf("\nQuantidade de registros: %d",quantidade);
+    fclose(arquivo);
+    return (quantidade);
 }
 
 int calculaQuantidadeBlocos(FILE* arquivo){

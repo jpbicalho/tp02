@@ -26,5 +26,13 @@ int main(){
     */
    criaFitas();
    selecao_por_substituicao();
+   //printf("\n\nfase de intercalacao -------- ");
+//do{
+    //printf("\n\n------------------------ Entrada");
+    //intercalacao_Balanceada_Fitas_entrada();
+    printf("\n\n------------------------ Saida");
+    //intercalacao_Balanceada_Fitas_Saida();
+    //}while(confere_Intercalacao() != NUM_REGISTROS);
+    
    return 0;
 }
