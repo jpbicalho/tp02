@@ -3,36 +3,18 @@
 #include "arquivo.h"
 #include "heap.h"
 int main(){
-/*
-    printf("\nCriando as fitas...");
+    printf("\nCriacao das fitas para intercalacao...");
     criaFitas();
-    
-    printf("\n--------------------------------------------\n\n\n\n");
-    
-    printf("\nCriacao dos Blocos Ordenados:\n");
-    cria_Blocos_Ordenados();
-    printa_Todas_Fitas();
-    
-    printf("\n--------------------------------------------\n\n\n\n");
-    printf("\nInicio da intercalacao:\n");
+    printf("\n\n... Fase de selecao por substituicao ... ");
+    selecao_por_substituicao();
+    printf("\n\n... Fase de intercalacao ... ");
     do{
-        intercalacao_fitas_entrada();
-        intercalacao_fitas_saida();
-    }while(validador()!=1);
-    
+        intercalacao_Balanceada_Fitas_entrada();
+        intercalacao_Balanceada_Fitas_Saida();
+    }while(confere_Intercalacao() != NUM_REGISTROS);
 
-    printf("\n\n\tOrdenacao concluida... :\n");
-    printa_Todas_Fitas();
-    */
-   criaFitas();
-   selecao_por_substituicao();
-   //printf("\n\nfase de intercalacao -------- ");
-//do{
-    //printf("\n\n------------------------ Entrada");
-    //intercalacao_Balanceada_Fitas_entrada();
-    printf("\n\n------------------------ Saida");
-    //intercalacao_Balanceada_Fitas_Saida();
-    //}while(confere_Intercalacao() != NUM_REGISTROS);
-    
-   return 0;
+    printf("\n\n\n...Gerando registros ordenados...");
+    gera_registros_ordenados();
+
+    return 0;
 }

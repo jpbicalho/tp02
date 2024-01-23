@@ -1,0 +1,100 @@
+00047497 0.0   DF BRASILIA                                           BRASILIA                                         
+00239419 0.0   MT CUIABA                                             CUIABA                                           
+00057202 0.0   MT AGUA BOA                                           AGUA BOA                                         
+00207334 0.0   MT CUIABA                                             CUIABA                                           
+00370724 0.0   MT CUIABA                                             CUIABA                                           
+00151750 0.0   MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00059573 0.0   MT CUIABA                                             CUIABA                                           
+00423855 0.0   MT CUIABA                                             CUIABA                                           
+00412790 0.0   MT CUIABA                                             CUIABA                                           
+00346592 14.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00065996 16.3  MT AGUA BOA                                           AGUA BOA                                         
+00269932 17.5  MT CUIABA                                             CUIABA                                           
+00037379 17.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00402740 18.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00121505 18.8  MT CUIABA                                             CUIABA                                           
+00301802 20.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00412481 20.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00456679 22.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00300056 22.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00163079 23.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00306088 24.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00386413 24.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00210550 24.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00005317 25.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00362081 27.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00111954 27.5  MT CUIABA                                             CUIABA                                           
+00023133 28.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00203779 30.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00142590 31.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00088312 31.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00183699 31.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00085344 31.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00213434 32.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00182746 33.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00101991 33.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00173550 34.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00170838 34.8  MT CUIABA                                             CUIABA                                           
+00170558 35.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00190351 36.3  DF BRASILIA                                           BRASILIA                                         
+00162633 36.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00059131 36.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00409928 37.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00003393 37.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00238292 38.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00202266 38.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00278763 39.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00107236 40.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00102393 40.5  MT CUIABA                                             CUIABA                                           
+00224450 40.5  MT CUIABA                                             CUIABA                                           
+00340424 41.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00400008 42.0  MT CUIABA                                             CUIABA                                           
+00364281 42.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00221291 42.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00220132 43.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00009997 43.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00061117 43.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00354405 43.8  MT CUIABA                                             CUIABA                                           
+00216194 44.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00373477 44.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00412715 44.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00035798 45.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00254576 46.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00336015 46.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00034535 46.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00369241 46.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00041603 47.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00406263 47.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00106233 48.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00213784 48.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00010357 48.8  MT CUIABA                                             CUIABA                                           
+00313201 48.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00331437 49.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00295222 49.3  MT CUIABA                                             CUIABA                                           
+00454483 50.0  MT CUIABA                                             CUIABA                                           
+00021887 51.8  MT CUIABA                                             CUIABA                                           
+00209822 53.0  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00301105 53.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00123883 53.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00124947 53.8  DF BRASILIA                                           BRASILIA                                         
+00280714 55.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00124597 55.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00382513 55.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00066198 56.0  MT CUIABA                                             CUIABA                                           
+00131227 57.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00351991 57.8  MT CUIABA                                             CUIABA                                           
+00120699 58.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00409557 58.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00319299 60.0  MT CUIABA                                             CUIABA                                           
+00058175 61.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00386649 62.5  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00150205 62.8  DF BRASILIA                                           BRASILIA                                         
+00301503 65.3  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00440588 66.8  MT PRIMAVERA DO LESTE                                 PRIMAVERA DO LESTE                               
+00213829 67.3  DF BRASILIA                                           BRASILIA                                         
+00113812 67.3  MT CUIABA                                             CUIABA                                           
+00350655 69.3  MT CUIABA                                             CUIABA                                           
+00382868 70.3  DF BRASILIA                                           BRASILIA                                         
+00350881 72.3  DF BRASILIA                                           BRASILIA                                         
+00426064 72.3  MT CUIABA                                             CUIABA                                           
+00347068 73.3  DF BRASILIA                                           BRASILIA                                         

@@ -16,6 +16,10 @@ void printa_Arquivo(tItem);
 
 tItem leitor_de_registros(FILE*);
 
+void gera_registros_ordenados();
+
+void imprime_Registros_Txt(FILE*,tItem);
+
 char* incrementa_Nome(char*);
 
 void define_Nome_Fita_Saida(char[]);
