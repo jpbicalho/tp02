@@ -35,14 +35,14 @@ int somatorioVetor(int vetor[], int n)
     return somatorio;
 }
 
-void selecao_por_substituicao(int *numLeitura, int *numEscrita, int *numComparacao)
+void selecao_por_substituicao(int *numLeitura, int *numEscrita, int *numComparacao,char *nomeBase,int numReg)
 {
 
     Heap *heap;
     heap = criarHeap(TAM_MEM_INTERNA);
 
     // heap construido, agora recebe os registros e joga pro heap
-    FILE *arquivoProvao = fopen("PROVAO.TXT", "r");
+    FILE *arquivoProvao = fopen(nomeBase, "r");
     char nomeFitaEntrada[] = "bin/fita00.bin";
     FILE *arquivoFita = fopen(nomeFitaEntrada, "ab");
 
@@ -85,7 +85,7 @@ void selecao_por_substituicao(int *numLeitura, int *numEscrita, int *numComparac
             contadorRegistros++;
             (*numEscrita)++;
             fwrite(&minReg.item, sizeof(tItem), 1, arquivoFita);
-            if (contadorRegistros >= NUM_REGISTROS)
+            if (contadorRegistros >= numReg)
             {
                 (*numEscrita)++;
                 fwrite(&marcaFim, sizeof(tItem), 1, arquivoFita);
@@ -125,13 +125,12 @@ void selecao_por_substituicao(int *numLeitura, int *numEscrita, int *numComparac
             }
         fopen(nomeFitaEntrada, "ab");
 
-    } while (contadorRegistros < NUM_REGISTROS);
+    } while (contadorRegistros < numReg);
+    
+    
     fclose(arquivoProvao);
     fclose(arquivoFita);
     desalocaHeap(heap);
-    printf("\nNumero de leitura: %d\n", *numLeitura);
-    printf("\nNumero de escrita: %d\n", *numEscrita);
-    printf("\nNumero de comparacoes: %d\n", *numComparacao);
 }
 
 void intercalacao_Balanceada_Fitas_entrada(int *numLeitura, int *numEscrita, int *numComparacao)

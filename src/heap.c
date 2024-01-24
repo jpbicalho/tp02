@@ -17,6 +17,7 @@ void minHeapify(Heap *heap, int indice, int *numComparacao)
 
     // Ordenar primeiro por marcado e depois por nota em caso de empate
     (*numComparacao)++;
+    
     if (esquerdo < heap->tamanho &&
         (heap->array[esquerdo].marcador < heap->array[menor].marcador ||
          (heap->array[esquerdo].marcador == heap->array[menor].marcador &&
@@ -81,16 +82,7 @@ void inserir(Heap *heap, tRegistro elemento, int *numComparacao)
         indice = (indice - 1) / 2;
     }
 }
-int marcaRegistro(tRegistro antigo, tRegistro novo)
-{
-    // se o novo for menor que o antigo retorna 1
-    if (antigo.item.nota > novo.item.nota)
-    {
-        return 1;
-    }
-    else
-        return 0;
-}
+
 
 void desalocaHeap(Heap *heap)
 {

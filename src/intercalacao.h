@@ -9,15 +9,12 @@
 
 #define TAM_MEM_INTERNA 10
 
-#define NUM_REGISTROS 20
 
-
-/// @brief Criação das fitas para manipulação dos dados
+// criação das fitas para manipulação dos dados
 void criaFitas();
 
-
-/// criacao dos blocos ordenados por meio do metodo de selecao por substituicao
-void selecao_por_substituicao(int*,int*,int*);
+// criacao dos blocos ordenados por meio do metodo de selecao por substituicao
+void selecao_por_substituicao(int*,int*,int*,char*,int);
 
 // soma os elementos de um vetor e retorna o resultado
 int somatorioVetor(int vetor[],int n);
