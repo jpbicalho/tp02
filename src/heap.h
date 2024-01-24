@@ -18,17 +18,15 @@ typedef struct {
 
 Heap* criarHeap(int capacidade);
 
-void construirHeap(Heap* heap);
-
 void desalocaHeap(Heap* heap);
 
 void trocar(tRegistro* a, tRegistro* b) ;
 
-void minHeapify(Heap* heap, int indice);
+void minHeapify(Heap* heap, int indice,int*);
 
-tRegistro extrairMinimo(Heap* heap);
+tRegistro extrairMinimo(Heap* heap,int*);
 
-void inserir(Heap* heap, tRegistro elemento);
+void inserir(Heap* heap, tRegistro elemento,int*);
 
 int marcaRegistro(tRegistro,tRegistro);
 

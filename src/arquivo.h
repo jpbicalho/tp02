@@ -3,24 +3,22 @@
 
 #include <stdio.h>
 
-typedef struct{
+typedef struct
+{
     long inscricao;
     double nota;
-    char estado[3],cidade[51],curso[31];
-}tItem;
-
-
-
+    char estado[3], cidade[51], curso[31];
+} tItem;
 
 void printa_Arquivo(tItem);
 
-tItem leitor_de_registros(FILE*);
+tItem leitor_de_registros(FILE *);
 
 void gera_registros_ordenados();
 
-void imprime_Registros_Txt(FILE*,tItem);
+void imprime_Registros_Txt(FILE *, tItem);
 
-char* incrementa_Nome(char*);
+char *incrementa_Nome(char *);
 
 void define_Nome_Fita_Saida(char[]);
 
